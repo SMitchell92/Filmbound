@@ -26,3 +26,4 @@ export async function getBooks(query: string): Promise<void> {
         console.error('Error fetching data:', error);
     }
 }
+
