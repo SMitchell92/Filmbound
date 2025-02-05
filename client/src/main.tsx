@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import ErrorPage from './pages/ErrorPage.tsx'
 import HomePage from './pages/HomePage.tsx'
 import LoginPage from './pages/LoginPage.tsx'
+import FavoritesPage from './pages/FavoritesPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: '/FavoritesPage',
+        element: <FavoritesPage />,
       },
       {
         path: 'login',

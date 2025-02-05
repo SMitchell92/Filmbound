@@ -1,9 +1,12 @@
 import React from 'react';
 import Auth from '../utils/auth';
 import { useState } from 'react';
-/* import { Link } from 'react-router-dom'; */
+import { Link, useLocation } from 'react-router-dom';
+
+
 
 const NavBar: React.FC = () => {
+    const currentPage = useLocation().pathname;
     const [loggedIn, _setLoggedIn] = useState(Auth.loggedIn());
     const handlelogout = () => {
         Auth.logout();
@@ -14,10 +17,26 @@ const NavBar: React.FC = () => {
                 <h1>Filmbound</h1>
             </div>
             <div className="navbar-menu">
-               { loggedIn&& <button className="logout-button" onClick={handlelogout}>
-                    Logout
-                </button>}
-            </div>
+                <Link
+                    to="/"
+
+                    className={currentPage === '/' ? 'nav-link active' : 'nav-link'}
+                >
+                    Home
+                </Link>
+            <li className="nav-item">
+                <Link
+                    to="/FavoritesPage"
+
+                    className={currentPage === '/FavoritesPage' ? 'nav-link active' : 'nav-link'}
+                >
+                    Favorites
+                </Link>
+            </li>
+            {loggedIn && <button className="logout-button" onClick={handlelogout}>
+                Logout
+            </button>}
+        </div>
         </nav>
     );
 };
