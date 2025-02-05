@@ -1,0 +1,80 @@
+/* App.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #5a5a5a, #808080); /* Grey gradient */
+
+    color: #000000;
+}
+
+header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #282c34;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form elements (labels, inputs, button) horizontally */
+    justify-content: center;
+  }
+
+button {
+    background-color: #0184a8;
+    border: none;
+    padding: 8px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px; /* Adds some space above the button */
+  }
+
+button:hover {
+    background-color: #004875;
+}
+
+/* NavBar Styling */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 0px;
+    color: white;
+    background: linear-gradient(135deg, rgba(1, 75, 125, 0.85), rgb(1, 65, 125)); /* Dark blue with light blue gradient */
+    width: 100%; /* Full width */
+    font-size: 22px;
+  }
+
+/* Login Page Styling */
+.loginpage {
+    text-align: center;
+    color:white;
+}
+
+.usernamelogin, .userpasswordlogin {
+    margin: 1px;
+    display: block; /* Make each label a block element */
+    text-align: center; /* Center the label and input */
+  }
