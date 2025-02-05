@@ -12,6 +12,7 @@ const FavoritesPage: React.FC = () => {
     return (
         <div>
             <h1>Favorites</h1>
+            {/* TODO: display db table of favorite books and movies here */}
         </div>
     );
 };
