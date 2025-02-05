@@ -38,9 +38,9 @@ const LoginPage: React.FC = () => {
 
     return (
         <div>
-            <h1>LoginPage</h1>
+            <h1 className="loginpage">LoginPage</h1>
             <form onSubmit={handleFormSubmit}>
-                <label>
+                <label className="usernamelogin">
                     Username:
                     <input
                         type="text"
@@ -49,7 +49,7 @@ const LoginPage: React.FC = () => {
                     />
                 </label>
                 <br />
-                <label>
+                <label className="userpasswordlogin">
                     Password:
                     <input
                         type="password"
