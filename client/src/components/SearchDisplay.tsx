@@ -19,21 +19,23 @@ function SearchDisplay(props: any) {
                 {
                     props.bookData ?
                         (
-                            props.bookData.map((result: any) => (
-                                <p>{result.volumeInfo.title}</p>
+                            props.bookData.map((_result: any) => (
+                                <p></p>
 
                             ))
                         ) : (
                             props.movieData.map((result: any, index: number) => (
-                                <div>
+                                <section className="movie-card">
                                     {
                                         index === 0 ?
                                             (
+                                                <div>
+                                                <h2>{result.title}</h2>
                                                 <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt="movie poster" />
+                                                </div>
                                             ) : null
                                     }
-                                    <p>{result.title}</p>
-                                </div>
+                                </section>
                             ))
                         )
                 }
