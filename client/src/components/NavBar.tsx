@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
         <nav className="navbar">
             <div className="navbar-brand">
                 <h1>Filmbound</h1>
-            </div>
+            </div>  
             <div className="navbar-menu">
                 <Link
                     to="/"
@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
                 >
                     Home
                 </Link>
-            <li className="nav-item">
+            <ul className="nav-item">
                 <Link
                     to="/FavoritesPage"
 
@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
                 >
                     Favorites
                 </Link>
-            </li>
+            </ul>
             {loggedIn && <button className="logout-button" onClick={handlelogout}>
                 Logout
             </button>}
