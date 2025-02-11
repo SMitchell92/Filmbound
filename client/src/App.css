@@ -3,9 +3,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(90deg, #5a5a5a, #808080); /* Grey gradient */
-
-    color: #000000;
+    background: linear-gradient(90deg, #54B9C5, #6052DE); /* Grey gradient */
+    color: #ffffff;
 }
 
 header {
@@ -28,6 +27,23 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+h1{
+    color: white;   
+}
+
+.nav-link.active {
+    color: grey !important
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: grey;
+}
+
 
 .container {
     max-width: 1200px;
