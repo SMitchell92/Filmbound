@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react"; */
 
 function SearchDisplay(props: any) {
 
-    const [items, setItems] = useState([]);
+/*     const [items, setItems] = useState([]);
 
     useEffect(() => {
         console.log(props);
@@ -12,7 +12,7 @@ function SearchDisplay(props: any) {
         } else {
             setItems(props.movieData);
         }
-        }, [props])
+        }, [props]) */
     return (
         <div>
         {
