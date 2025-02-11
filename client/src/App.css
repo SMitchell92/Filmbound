@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(90deg, #54B9C5, #6052DE); /* Grey gradient */
+    background: linear-gradient(90deg, #8C89AE, #000000); /* Grey gradient */
     color: #ffffff;
 }
 
@@ -78,7 +78,8 @@ button:hover {
     align-items: center;
     padding: 1px 0px;
     color: white;
-    background: linear-gradient(135deg, rgba(1, 75, 125, 0.85), rgb(1, 65, 125)); /* Dark blue with light blue gradient */
+    background: linear-gradient(90deg, #8C89AE, #000000);
+    /* background: linear-gradient(135deg, rgba(1, 75, 125, 0.85), rgb(1, 65, 125)); Dark blue with light blue gradient */
     width: 100%; /* Full width */
     font-size: 22px;
   }

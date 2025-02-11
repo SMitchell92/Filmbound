@@ -72,12 +72,14 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <h1>Homepage</h1>
+      {/* <h1>Homepage</h1> */}
 
       <form>
-        <div id="titleSearchInput">
-          <label htmlFor="name">Movie/Book Title</label>
+        <div id="titleSearchInput" className="w-75">
+          <label htmlFor="name">Search for a Movie or Book...</label>
+          <br></br>
           <input
+            className="form-control form-control-lg rounded-pill shadow-lg w-75"
             type="text"
             id="name"
             name="name" required
