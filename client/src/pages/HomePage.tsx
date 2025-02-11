@@ -23,17 +23,17 @@ interface Film {
   readonly Genre: string | null;
 }
 
-interface favoriteItems {
-  id: string;
-  title: string;
-  isFavorited: boolean;
-}
-
+// interface favoriteItems {
+//   id: string;
+//   title: string;
+//   isFavorited: boolean;
+// }
+// MIGHT NEED THIS LATER
 
 const HomePage: React.FC = () => {
   const [inputName, setInputName] = useState("");
   const [bookData, setBookData] = useState<Book[]>([]);
-  const [movieData, setMovieData] = useState([]);
+  const [movieData, setMovieData] = useState<Film[]>([]);
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -112,15 +112,15 @@ const HomePage: React.FC = () => {
 
       <div>
         <h2>Favorites</h2>
-        {bookData.map((book) => (
+        {bookData.length > 0 && (
           <FavoriteButton
-            key={book.id}
-            id={book.id}
-            itemId={book.id}
-            isFavorited={book.isFavorited}
-            toggleFavorite={(id) => toggleFavorite(id, 'movie')}
+            key={bookData[0].id}
+            id={bookData[0].id}
+            itemId={bookData[0].id}
+            isFavorited={bookData[0].isFavorited}
+            toggleFavorite={(id) => toggleFavorite(id, 'book')}
           />
-        ))}
+        )}
       </div>
     </div>
     // </div>
@@ -132,3 +132,50 @@ export default HomePage;
 
 // Save to local storage localstorage.setitem("favorites", JSON.stringify(favorites))
 // Get from local storage const favorites = JSON.parse(localstorage.getitem("favorites")) || []
+
+
+
+// THESE ARE NOT IMPORTANT JUST SOMETHING TO LOOK AT IN CASE IT MIGHT HELP
+
+// useEffect(() => {
+//   const existingFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+//   const updatedFavorites = [...existingFavorites, ...favorites.filter(fav => !existingFavorites.some((existingFav: any) => existingFav.id === fav.id))];
+//   localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+// }, [favorites]);
+
+// const handleFormSubmit = async (event: any) => {
+//   event.preventDefault();
+//   const moviesResponse: any = await getMovies(inputName);
+//   const response = await getBooks(inputName);
+//   console.log(moviesResponse);
+//   setBookData(response.items);
+//   setMovieData(moviesResponse.results);
+// };
+
+// const toggleFavorite = (id: string, type: "book" | "movie") => {
+//   if (type === "book") {
+//     setBookData((prevData) =>
+//       prevData.map((item: any) =>
+//         item.id === id ? { ...item, isFavorited: !item.isFavorited } : item
+//       )
+//     );
+//   } else {
+//     setMovieData((prevData) =>
+//       prevData.map((item: any) =>
+//         item.id === id ? { ...item, isFavorited: !item.isFavorited } : item
+//       )
+//     );
+//   }
+
+//   const item = type === "book" ? bookData.find((item) => item.id === id) : movieData.find((item) => item.id === id);
+//   if (item) {
+//     setFavorites((prevFavorites) => {
+//       const isFavorited = !item.isFavorited;
+//       if (isFavorited) {
+//         return [...prevFavorites, { id: item.id, title: item.Title || "", isFavorited }];
+//       } else {
+//         return prevFavorites.filter((fav) => fav.id !== item.id);
+//       }
+//     });
+//   }
+// };

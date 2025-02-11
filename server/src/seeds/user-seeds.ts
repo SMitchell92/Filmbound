@@ -16,6 +16,24 @@ export const seedUsers = async () => {
         password: 'password',
         favorites: [],
       },
+      {
+        username: 'Jade',
+        email: 'fake@email.com',
+        password: 'password',
+        favorites: [],
+      },
+      {
+        username: 'Hannah',
+        email: 'fake@email.com',
+        password: 'password',
+        favorites: [],
+      },
+      {
+        username: 'Stuart',
+        email: 'fake@email.com',
+        password: 'password',
+        favorites: [],
+      },
     ],
     { individualHooks: true }
   );
