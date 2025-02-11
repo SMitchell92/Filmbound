@@ -6,6 +6,7 @@ interface UserAttributes {
   username: string;
   email: string;
   password: string;
+  favorites?: any[];
 }
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
@@ -18,6 +19,7 @@ export class User
   public username!: string;
   public email!: string;
   public password!: string;
+  public favorites!: any[];
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -48,6 +50,10 @@ export function UserFactory(sequelize: Sequelize): typeof User {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      favorites: {
+        type: DataTypes.JSON,
+        allowNull: true,
       },
     },
     {
