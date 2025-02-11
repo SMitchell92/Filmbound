@@ -3,7 +3,7 @@ dotenv.config();
 
 import { Sequelize } from 'sequelize';
 
-console.log("THIS IS AN EXTTREMRMELTY LARGE TEXT THAT I CAN HOPEFULLY SEE IN THE ERROrS", process.env.DB_PASSWORD);
+console.log("THIS IS AN EXTTREMRMELTY LARGE TEXT THAT I CAN HOPEFULLY SEE IN THE ERROrS");
 
 const sequelize = process.env.DB_URL
   ? new Sequelize(process.env.DB_URL)
