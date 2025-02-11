@@ -72,12 +72,14 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <h1>Homepage</h1>
-
-      <form>
-        <div id="titleSearchInput">
-          <label htmlFor="name">Movie/Book Title</label>
+    <div className="d-flex justify-content-center align-items-center">
+      {/* <h1>Homepage</h1> */}
+      <form className="w-100">
+      <div className="mb-3 fs-4" id="name">Search for a Movie or Book...</div>
+        <div id="titleSearchInput" className="d-flex justify-content-center w-100">
+          <br></br>
           <input
+            className="form-control form-control-lg rounded-pill shadow-lg w-50"
             type="text"
             id="name"
             name="name" required
@@ -86,8 +88,9 @@ const HomePage: React.FC = () => {
               setInputName(event.target.value)
             }}></input>
         </div>
-        <button onClick={handleFormSubmit} type="submit">Search</button>
+        <button onClick={handleFormSubmit} type="submit" className="fs-5">Search</button>
       </form>
+      </div>
 
       <div style={{
         display: "flex",
@@ -120,6 +123,7 @@ const HomePage: React.FC = () => {
         ))}
       </div>
     </div>
+    // </div>
   );
 }
 

@@ -37,29 +37,36 @@ const LoginPage: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1 className="loginpage">LoginPage</h1>
+        <div className="d-flex justify-content-center align-items-center">
+            <div className="col-md-6 col-lg-2 bg-light bg-opacity-25 rounded-3 p-4 shadow-lg">
+            <h1 className="loginpage fw-bold">Login</h1>
+            <br></br>
             <form onSubmit={handleFormSubmit}>
-                <label className="usernamelogin">
-                    Username:
+                <div className="username mb-3">
+                    {/* Username: */}
                     <input
+                        className='form-control w-100'
+                        placeholder='Username'
                         type="text"
                         value={user.username}
                         onChange={(e) => setUser({ ...user, username: e.target.value })}
                     />
-                </label>
+                </div>
                 <br />
-                <label className="userpasswordlogin">
-                    Password:
+                <div className="userpasswordlogin mb-2">
+                    {/* Password: */}
                     <input
+                    className='form-control'
+                        placeholder='Password'
                         type="password"
                         value={user.password}
                         onChange={(e) => setUser({ ...user, password: e.target.value })}
                     />
-                </label>
+                </div>
                 <br />
-                <button type="submit">Login</button>
+                <button className="btn btn-primary w-75 mb-1" type="submit">Login</button>
             </form>
+            </div>
         </div>
     );
 };

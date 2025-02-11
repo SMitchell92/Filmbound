@@ -3,9 +3,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(90deg, #5a5a5a, #808080); /* Grey gradient */
-
-    color: #000000;
+    background: linear-gradient(90deg, #8C89AE, #000000); /* Grey gradient */
+    color: #ffffff;
 }
 
 header {
@@ -29,6 +28,23 @@ footer {
     bottom: 0;
 }
 
+h1{
+    color: white;   
+}
+
+.nav-link.active {
+    color: grey !important
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: grey;
+}
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -42,8 +58,8 @@ form {
   }
 
 button {
-    background-color: #0184a8;
-    border: none;
+    background-color: #3c3955 !important;
+    border: #000000 !important;
     padding: 8px 20px;
     color: white;
     cursor: pointer;
@@ -52,7 +68,7 @@ button {
   }
 
 button:hover {
-    background-color: #004875;
+    background-color: #b0adcc !important;
 }
 
 /* NavBar Styling */
@@ -62,7 +78,8 @@ button:hover {
     align-items: center;
     padding: 1px 0px;
     color: white;
-    background: linear-gradient(135deg, rgba(1, 75, 125, 0.85), rgb(1, 65, 125)); /* Dark blue with light blue gradient */
+    background: linear-gradient(90deg, #8C89AE, #000000);
+    /* background: linear-gradient(135deg, rgba(1, 75, 125, 0.85), rgb(1, 65, 125)); Dark blue with light blue gradient */
     width: 100%; /* Full width */
     font-size: 22px;
   }
@@ -77,4 +94,13 @@ button:hover {
     margin: 1px;
     display: block; /* Make each label a block element */
     text-align: center; /* Center the label and input */
+  }
+
+  .login-form {
+    background-color: #282c34;
+  }
+
+  #titleSearchInput input{
+    background-color: lightgrey;
+    border: white 4px solid;
   }

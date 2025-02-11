@@ -25,8 +25,8 @@ function SearchDisplay(props: any) {
                                         index === 0 ?
                                             (
                                                 <div>
-                                                <h2>{result.title}</h2>
-                                                <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt="movie poster" />
+                                                    <h2>{result.title}</h2>
+                                                    <img src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} alt="movie poster" />
                                                 </div>
                                             ) : null
                                     }

@@ -12,11 +12,12 @@ const NavBar: React.FC = () => {
         Auth.logout();
     }
     return (
-        <nav className="navbar">
+        <nav className="navbar navbar-light bg-light justify-content-between py-4">
             <div className="navbar-brand">
                 <h1>Filmbound</h1>
             </div>  
-            <div className="navbar-menu">
+            <div className="navbar-menu nav justify-content-end">
+                <ul className="nav-item">
                 <Link
                     to="/"
 
@@ -24,18 +25,21 @@ const NavBar: React.FC = () => {
                 >
                     Home
                 </Link>
+                </ul>
             <ul className="nav-item">
-                <Link
+                {loggedIn && <Link
                     to="/FavoritesPage"
 
                     className={currentPage === '/FavoritesPage' ? 'nav-link active' : 'nav-link'}
                 >
                     Favorites
-                </Link>
+                </Link>}
             </ul>
+            <ul className='nav-item'>
             {loggedIn && <button className="logout-button" onClick={handlelogout}>
                 Logout
             </button>}
+            </ul>
         </div>
         </nav>
     );
