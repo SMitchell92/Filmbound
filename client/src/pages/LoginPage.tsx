@@ -39,7 +39,7 @@ const LoginPage: React.FC = () => {
     return (
         <div className="d-flex justify-content-center align-items-center">
             <div className="col-md-6 col-lg-2 bg-light bg-opacity-25 rounded-3 p-4 shadow-lg">
-            <h1 className="loginpage">Login</h1>
+            <h1 className="loginpage fw-bold">Login</h1>
             <br></br>
             <form onSubmit={handleFormSubmit}>
                 <div className="username mb-3">

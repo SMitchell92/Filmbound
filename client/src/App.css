@@ -99,3 +99,8 @@ button:hover {
   .login-form {
     background-color: #282c34;
   }
+
+  #titleSearchInput input{
+    background-color: lightgrey;
+    border: white 4px solid;
+  }
