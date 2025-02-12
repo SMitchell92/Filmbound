@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { getBooks } from '../../../server/src/routes/api/bookApi';
 import SearchDisplay from '../components/SearchDisplay';
 import { getMovies } from '../api/movieApi.js';
-import FavoriteButton from '../components/FavoriteButton';
+import { addFavoriteMovie } from '../api/movieApi.js';
+import { addFavoriteBook } from '../api/bookApi.js';
 
 interface Book {
   readonly id: string;
@@ -14,21 +15,22 @@ interface Book {
   readonly Author: string | null;
   readonly Poster: string | null;
   readonly Genre: string | null;
+  readonly volumeInfo: { title: string | null; authors: string | null; categories: string | null; imageLinks: { thumbnail: string | null; } | null; };
 }
 
 interface Film {
-  readonly Title: string | null;
+  readonly title: string | null;
   readonly Director: string | null;
   readonly Poster: string | null;
   readonly Genre: string | null;
 }
 
-// interface favoriteItems {
-//   id: string;
-//   title: string;
-//   isFavorited: boolean;
-// }
-// MIGHT NEED THIS LATER
+let userId: number;
+if (Auth.getProfile()) {
+  userId = parseInt((Auth.getProfile() as { id: string }).id);
+}
+
+//const userId = parseInt((Auth.getProfile() as { id: string }).id);
 
 const HomePage: React.FC = () => {
   const [inputName, setInputName] = useState("");
@@ -42,6 +44,12 @@ const HomePage: React.FC = () => {
     }
   }, [])
 
+  useEffect(() => {
+    console.log("Movie data", movieData);
+    console.log("Book data", bookData);
+
+  }, [movieData, bookData])
+
   const handleFormSubmit = async (event: any) => {
     event.preventDefault();
     const moviesResponse: any = await getMovies(inputName);
@@ -49,6 +57,16 @@ const HomePage: React.FC = () => {
     console.log(moviesResponse);
     setBookData(response.items);
     setMovieData(moviesResponse.results)
+  }
+
+  const handleAddMovie = async (userId: number, title: string) => {
+    const response = await addFavoriteMovie(title, userId);
+    console.log(response);
+  }
+
+  const handleAddBook = async (userId: number, title: string) => {
+    const response = await addFavoriteBook(title, userId);
+    console.log(response);
   }
 
   const toggleFavorite = (id: string, type: "book" | "movie") => {
@@ -72,24 +90,24 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-    <div className="d-flex justify-content-center align-items-center">
-      {/* <h1>Homepage</h1> */}
-      <form className="w-100">
-      <div className="mb-3 fs-4" id="name">Search for a Movie or Book...</div>
-        <div id="titleSearchInput" className="d-flex justify-content-center w-100">
-          <br></br>
-          <input
-            className="form-control form-control-lg rounded-pill shadow-lg w-50"
-            type="text"
-            id="name"
-            name="name" required
-            value={inputName}
-            onChange={(event) => {
-              setInputName(event.target.value)
-            }}></input>
-        </div>
-        <button onClick={handleFormSubmit} type="submit" className="fs-5">Search</button>
-      </form>
+      <div className="d-flex justify-content-center align-items-center">
+        {/* <h1>Homepage</h1> */}
+        <form className="w-100">
+          <div className="mb-3 fs-4" id="name">Search for a Movie or Book...</div>
+          <div id="titleSearchInput" className="d-flex justify-content-center w-100">
+            <br></br>
+            <input
+              className="form-control form-control-lg rounded-pill shadow-lg w-50"
+              type="text"
+              id="name"
+              name="name" required
+              value={inputName}
+              onChange={(event) => {
+                setInputName(event.target.value)
+              }}></input>
+          </div>
+          <button onClick={handleFormSubmit} type="submit" className="fs-5">Search</button>
+        </form>
       </div>
 
       <div style={{
@@ -97,33 +115,44 @@ const HomePage: React.FC = () => {
         flexDirection: "row",
 
       }}>
-        <SearchDisplay
-          movieData={movieData}
-          toggleFavorite={toggleFavorite}
-        />
+        <div>
+          <SearchDisplay
+            movieData={movieData}
+            toggleFavorite={toggleFavorite}
+          />
 
+          <div>
+            {
+              movieData.length > 0 && (
+                <div key={movieData[0].title}>
+                  <h3>{movieData[0].title}</h3>
+                  <button onClick={() => handleAddMovie(userId, movieData[0].title as string)}>Add Favorite</button>
+                </div>
+              )
+            }
+          </div>
+
+        </div>
         <hr />
 
-        <SearchDisplay
-          bookData={bookData}
-          toggleFavorite={toggleFavorite}
-        />
-      </div>
-
-      <div>
-        <h2>Favorites</h2>
-        {bookData.length > 0 && (
-          <FavoriteButton
-            key={bookData[0].id}
-            id={bookData[0].id}
-            itemId={bookData[0].id}
-            isFavorited={bookData[0].isFavorited}
-            toggleFavorite={(id) => toggleFavorite(id, 'book')}
+        <div>
+          <SearchDisplay
+            bookData={bookData}
+            toggleFavorite={toggleFavorite}
           />
-        )}
+          <div>
+            {
+              bookData.length > 0 && (
+                <div key={bookData[0].volumeInfo.title}>
+                  <h3>{bookData[0].volumeInfo.title}</h3>
+                  <button onClick={() => handleAddBook(userId, bookData[0].volumeInfo.title as string)}>Add Favorite</button>
+                </div>
+              )
+            }
+          </div>
+        </div>
       </div>
     </div>
-    // </div>
   );
 }
 

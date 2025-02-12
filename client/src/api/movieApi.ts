@@ -22,3 +22,25 @@ export async function getMovies(query: string): Promise<any> {
         throw error;
     }
 }
+
+export async function addFavoriteMovie(title: string, userId: number): Promise<any> {
+    const url = '/api/favorites/movies';
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title, userId }),
+        });
+        if (!response.ok) {
+            throw new Error(`${response}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error adding favorite movie:', error);
+        throw error;
+    }
+}
+

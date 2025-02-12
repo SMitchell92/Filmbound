@@ -21,7 +21,8 @@ router.get('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const user = await User.findByPk(id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
+      include: ['favorite_movies', 'favorite_books']
     });
     if (user) {
       res.json(user);
