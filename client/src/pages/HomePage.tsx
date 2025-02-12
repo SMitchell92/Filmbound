@@ -110,12 +110,14 @@ const HomePage: React.FC = () => {
         </form>
       </div>
 
+      <div className='mt-4 d-flex flex-wrap justify-content-center'>
+
       <div style={{
         display: "flex",
         flexDirection: "row",
 
       }}>
-        <div>
+        <div className='container mt-4'>
           <SearchDisplay
             movieData={movieData}
             toggleFavorite={toggleFavorite}
@@ -135,7 +137,7 @@ const HomePage: React.FC = () => {
         </div>
         <hr />
 
-        <div>
+        <div className='container mt-4'>
           <SearchDisplay
             bookData={bookData}
             toggleFavorite={toggleFavorite}
@@ -150,6 +152,7 @@ const HomePage: React.FC = () => {
               )
             }
           </div>
+        </div>
         </div>
       </div>
     </div>
