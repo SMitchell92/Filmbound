@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
         Auth.logout();
     }
     return (
-        <nav className="navbar navbar-light bg-light justify-content-between py-4">
+        <nav className="navbar navbar-light bg-light justify-content-between py-4 px-5">
             <div className="navbar-brand">
                 <h1>Filmbound</h1>
             </div>  
